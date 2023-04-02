@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stock Pairs Analysis</title>
+    <style>
+        body {
+            background-color: rgb(88, 107, 103);
+            /* add this line to change the background color */
+            background-image: url('https://images.unsplash.com/photo-1580311033297-86d67ea2fdb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 700px;
+            background-color: #19193d;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            height: 30px;
+        }
+
+        th {
+            background-color: #6e3f68;
+            color: white;
+        }
+
+        .buy {
+            color: green;
+            font-weight: bold;
+        }
+
+        .sell {
+            color: red;
+            font-weight: bold;
+        }
+
+        .title {
+
+            text-align: center;
+            color: rgb(133, 49, 49);
+            font-size: 46px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px #0c5746;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #000000;
+            text-align: justify;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .content {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+
+        .warning-left {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            background-color: rgba(255, 0, 0, 0.7);
+            font-weight: bold;
+            text-align: center;
+            width: 20%;
+        }
+
+        .warning-right {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: rgba(255, 0, 0, 0.7);
+            font-weight: bold;
+            text-align: center;
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warning-left">These are my personal views and do not reflect those of any organization.</div>
+    <div class="warning-right">These pairs have potential reversion in their prices.</div>
+    <h1 class="title">NIFTY50 Arbitrage Stock Pairs</h1>
+    {% if results %}
+    <table>
+        <thead>
+            <tr>
+                <th>Buy</th>
+                <th>Sell</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pair in results %}
+            <tr>
+                <td class="buy">{{ pair.buy_stock }}</td>
+                <td class="sell">{{ pair.sell_stock }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No pairs found.</p>
+    {% endif %}
+
+    <div class="content">
+        <h2 style="text-align: center;">About the Website</h2>
+        <p style="font-family: fantasy; font-weight: 500; font-variant: inherit;">The website uses the NSE India website
+            to fetch the list of the Nifty 50 companies, get stock prices from for
+            the past 5 years, and analyzes the correlation and spread between the stocks to identify highly correlated
+            pairs that can be traded using a mean reversion strategy. The results are cached to avoid fetching data
+            repeatedly.</p>
+    </div>
+</body>
+
+</html>
