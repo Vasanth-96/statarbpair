@@ -1,6 +1,6 @@
 import os
-os.environ['http_proxy'] = 'http://iit2020096:2002-12-12@172.31.2.3:8080'
-os.environ['https_proxy'] = 'http://iit2020096:2002-12-12@172.31.2.3:8080'
+os.environ['http_proxy'] = 'http://usrname:password@172.31.2.3:8080'
+os.environ['https_proxy'] = 'http://usrname:password@172.31.2.3:8080'
 from django.shortcuts import render
 
 # Create your views here.
