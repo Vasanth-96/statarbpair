@@ -43,4 +43,7 @@ The **statarbpair** project is designed to analyze historical stock data and ide
    ```sh
    http://127.0.0.1:8000/stocks/analyze_stocks/
    ```
+   
+### note
+please wait atleast 1 min after opening this link since for the first time it takes time then after the results are stored in cache.
 
